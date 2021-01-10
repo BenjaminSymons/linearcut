@@ -19,7 +19,12 @@
     "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"
   },
-  "browserlist": [
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
     "> 1%",
     "last 2 versions"
   ]
