@@ -1,18 +1,18 @@
 @use "sass:color";
 
 @function tint($base, $amount) {
-    $tinted: color.adjust($base, $hue: -$amount, $saturation: -($amount * 0.1), $lightness: $amount);
+    $tinted: color.adjust($base, $hue: -$amount, $saturation: -($amount * 0.1) * 1%, $lightness: $amount * 1%);
     @return $tinted;
 }
 
 @function shade($base, $amount) {
-    $tinted: color.adjust($base, $hue: $amount, $saturation: -($amount * 0.6), $lightness: -$amount);
+    $tinted: color.adjust($base, $hue: $amount, $saturation: -($amount * 0.6) * 1%, $lightness: -$amount * 1%);
     @return $tinted;
 }
 
 $deepSkyBlue: #053847;
 $t1: #ECEFF1;
-$t2: shade($t1, 10%);
+$t2: shade($t1, 10);
 // $t2: color.adjust($t1, $hue: 10%, $saturation: 00%);
 // $t1: #FF4422;
 // @debug "T2 : hsl(#{hue($t2)}, #{saturation($t2)}, #{lightness($t2)});";

@@ -11,7 +11,9 @@ import AppHeader from "./components/AppHeader";
 export default {
   data() {
     return {
-      structure: {},
+      maxLength: 0,
+      pieces: [],
+      kerfing: 0
     };
   },
   components: {
