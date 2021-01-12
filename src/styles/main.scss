@@ -1,0 +1,15 @@
+@use "sass:color";
+
+@function tint($base, $amount) {
+    $tinted: color.adjust($base, $hue: $amount, $saturation: - $amount * 0.5, $lightness: $amount * 0.7);
+    @return $tinted;
+}
+
+$deepSkyBlue: #053847;
+// $t1: #ECEFF1;
+// $t2: color.adjust($t1, $hue: 10%, $saturation: 00%);
+$t1: #FF4422;
+$t2: tint($t1, -40);
+$b1:#ffffff ;
+$b2: color.scale($b1, $lightness: -2%);
+$subtitleText: #2a0581;
