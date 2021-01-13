@@ -3,13 +3,7 @@
     <app-header />
     <section class="container">
       <app-tool />
-      <app-form
-        :input-length="inputLength"
-        :input-quantity="inputQuantity"
-        :max-length="maxLength"
-        :gappage="gappage"
-        :pieces-required="piecesRequired"
-      />
+      <app-form/>
     </section>
     <p>Length {{ inputLength }}</p>
     <p>Quantity {{ inputQuantity }}</p>
@@ -21,24 +15,17 @@
 import AppHeader from "./components/AppHeader";
 import AppTool from "./components/AppTool";
 import AppForm from "./components/AppForm";
+import { mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      maxLength: 0,
-      piecesRequired: [],
-      gappage: 0,
-      outputList: [],
-      inputLength: 0,
-      inputQuantity: 1,
-    };
-  },
   components: {
     AppHeader,
     AppTool,
     AppForm,
   },
-  computed: {},
+  computed: {
+    ...mapState(["maxLength", "piecesRequired", "gappage", "inputLength", "inputQuantity"]),
+  },
   methods: {},
   watch: {},
 };

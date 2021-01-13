@@ -1,6 +1,6 @@
 <template>
   <aside>
-      <h3>Pieces Required</h3>
+    <h3>Pieces Required</h3>
     <fieldset>
       <label for="inputLength">Length</label>
       <input
@@ -39,14 +39,13 @@
       </select>
     </fieldset>
 
-
     <fieldset>
       <h3>Settings</h3>
       <label for="maxLength">Material Length</label>
       <input
         id="maxLength"
         type="number"
-        min=0
+        min="0"
         @input="$emit('update:maxLength', $event.target.value)"
         oninput="validity.valid||(value='')"
         v-model.number="maxLength"
@@ -68,35 +67,23 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-  props: {
-    inputLength: {
-      type: [Number],
-      required: true,
-    },
-    inputQuantity: {
-      type: [Number],
-      required: true,
-    },
-    maxLength: {
-        type: [Number],
-        required: true
-    },
-    gappage: {
-      type: [Number],
-      required: true,
-    },
-    piecesRequired: {
-      type: [Array],
-      required: true,
-    },
+  computed: {
+    ...mapState([
+      "inputLength",
+      "inputQuantity",
+      "maxLength",
+      "gappage",
+      "piecesRequired",
+    ]),
   },
   methods: {
     addInputToList() {
       if (!this.inputLength) {
         return;
       }
-
       this.piecesRequired.push([this.inputQuantity, this.inputLength]);
       this.inputLength = 0;
       this.inputQuantity = 0;
@@ -113,10 +100,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 h3 {
-    margin: 0;
-    font-family: "Mukta Mahee", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font-family: "Mukta Mahee", Helvetica, Arial, sans-serif;
 }
 
 aside {
