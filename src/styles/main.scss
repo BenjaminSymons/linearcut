@@ -10,6 +10,14 @@
     @return $tinted;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+input, label, button {
+    font-family: "Mukta Mahee", Helvetica, Arial, sans-serif;
+}
+
 $deepSkyBlue: #053847;
 $t1: #ECEFF1;
 $t2: shade($t1, 10);
