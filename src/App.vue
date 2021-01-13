@@ -1,6 +1,13 @@
 <template>
   <div id="app">
     <app-header />
+    <p>Length {{inputLength}}</p>
+    <p>Quantity {{inputQuantity}}</p>
+    <input v-model.number="inputLength" />
+    <input v-model.number="inputQuantity"/>
+    <p>{{piecesRequired}}</p>
+    <button v-on:click="piecesRequired.push([inputQuantity, inputLength]); inputLength = null; inputQuantity = 1;">Add</button>
+    <p>{{ colArr }}</p>
     <section class="tool"></section>
   </div>
 </template>
@@ -12,14 +19,22 @@ export default {
   data() {
     return {
       maxLength: 0,
-      pieces: [],
-      kerfing: 0
+      piecesRequired: [],
+      gappage: 0,
+      outputList: [],
+      inputLength: null,
+      inputQuantity: 1
     };
   },
   components: {
     AppHeader,
   },
-};
+  methods: {
+    
+  },
+  watch: {
+
+}
 </script>
 
 <style lang="scss">
