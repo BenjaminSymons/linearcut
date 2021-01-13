@@ -1,19 +1,27 @@
 <template>
   <div id="app">
     <app-header />
-    <p>Length {{inputLength}}</p>
-    <p>Quantity {{inputQuantity}}</p>
+    <p>Length {{ inputLength }}</p>
+    <p>Quantity {{ inputQuantity }}</p>
     <input v-model.number="inputLength" />
-    <input v-model.number="inputQuantity"/>
-    <p>{{piecesRequired}}</p>
-    <button v-on:click="piecesRequired.push([inputQuantity, inputLength]); inputLength = null; inputQuantity = 1;">Add</button>
-    <p>{{ colArr }}</p>
-    <section class="tool"></section>
+    <input v-model.number="inputQuantity" />
+    <p>{{ piecesRequired }}</p>
+    <section class="container">
+      <app-tool />
+      <app-form
+        :input-length.sync="inputLength"
+        :input-quantity.sync="inputQuantity"
+        :gappage="gappage"
+        :pieces-required="piecesRequired"
+      />
+    </section>
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader";
+import AppTool from "./components/AppTool";
+import AppForm from "./components/AppForm";
 
 export default {
   data() {
@@ -22,19 +30,23 @@ export default {
       piecesRequired: [],
       gappage: 0,
       outputList: [],
-      inputLength: null,
-      inputQuantity: 1
+      inputLength: 0,
+      inputQuantity: 1,
     };
   },
   components: {
     AppHeader,
+    AppTool,
+    AppForm,
+  },
+  computed: {
+    
   },
   methods: {
     
   },
-  watch: {
-
-}
+  watch: {},
+};
 </script>
 
 <style lang="scss">
@@ -71,23 +83,45 @@ body {
   margin: 5vmin;
 }
 
-.tool {
-  border: 1px solid $deepSkyBlue;
-  width: calc(70vw - 50px);
-  height: calc(70vh - 50px);
-  background: $t1; /* Old browsers */
-  background: -moz-linear-gradient(top, $t1 0%, $t2 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    $t1 0%,
-    $t2 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    $t1 0%,
-    $t2 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16242c', endColorstr='#12101d',GradientType=0 ); /* IE6-9 fallback on horizontal gradient */
-  box-shadow: 0 2px 20px 0 #aaa;
+.container {
+  display: flex;
+}
+
+label {
+  padding-right: 18px;
+  display: inline-block;
+  width: 150px;
+}
+
+input {
+  font-size: 17px;
+  background: $b2;
+  color: black;
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #666;
+}
+
+fieldset {
+  margin-bottom: 20px;
+  border: none;
+  margin: 0;
+  padding: 5px 0;
+}
+
+button {
+  background: transparent;
+  color: $subtitleText;
+  padding: 4px 30px 5px;
+  border-radius: 1000px;
+  border: 1px solid $subtitleText;
+  font-size: 16px;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: 0.25s all;
+  &:hover {
+    background: $subtitleText;
+    color: white;
+  }
 }
 </style>
