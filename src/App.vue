@@ -1,20 +1,19 @@
 <template>
   <div id="app">
     <app-header />
-    <p>Length {{ inputLength }}</p>
-    <p>Quantity {{ inputQuantity }}</p>
-    <input v-model.number="inputLength" />
-    <input v-model.number="inputQuantity" />
-    <p>{{ piecesRequired }}</p>
     <section class="container">
       <app-tool />
       <app-form
-        :input-length.sync="inputLength"
-        :input-quantity.sync="inputQuantity"
+        :input-length="inputLength"
+        :input-quantity="inputQuantity"
+        :max-length="maxLength"
         :gappage="gappage"
         :pieces-required="piecesRequired"
       />
     </section>
+    <p>Length {{ inputLength }}</p>
+    <p>Quantity {{ inputQuantity }}</p>
+    <p>{{ piecesRequired }}</p>
   </div>
 </template>
 
@@ -39,12 +38,8 @@ export default {
     AppTool,
     AppForm,
   },
-  computed: {
-    
-  },
-  methods: {
-    
-  },
+  computed: {},
+  methods: {},
   watch: {},
 };
 </script>
@@ -97,7 +92,7 @@ input {
   font-size: 17px;
   background: $b2;
   color: black;
-  width: 60px;
+  width: 80px;
   padding: 5px;
   border: 1px solid #666;
 }
