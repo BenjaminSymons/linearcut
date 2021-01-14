@@ -5,20 +5,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    maxLength: 0,
+    maxLength: 250,
     piecesRequired: [],
     gappage: 0,
-    outputList: [],
-    inputLength: 0,
-    inputQuantity: 1,
+    outputList: []
   },
   mutations: {
-    updateInputLength(state, payload) {
-      state.inputLength = payload;
-    },
-    updateInputQuantity(state, payload) {
-      state.inputQuantity = payload;
-    },
     updateMaxLength(state, payload) {
       state.maxLength = payload;
     },

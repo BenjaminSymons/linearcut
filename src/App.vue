@@ -2,11 +2,9 @@
   <div id="app">
     <app-header />
     <section class="container">
-      <app-tool />
+      <app-tool :items="piecesRequired" />
       <app-form />
     </section>
-    <p>Length {{ inputLength }}</p>
-    <p>Quantity {{ inputQuantity }}</p>
     <p>{{ piecesRequired }}</p>
   </div>
 </template>
@@ -24,13 +22,7 @@ export default {
     AppForm,
   },
   computed: {
-    ...mapState([
-      "maxLength",
-      "piecesRequired",
-      "gappage",
-      "inputLength",
-      "inputQuantity",
-    ]),
+    ...mapState(["maxLength", "piecesRequired", "gappage", "outputList"]),
   },
   methods: {},
   watch: {},

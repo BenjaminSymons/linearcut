@@ -7,8 +7,9 @@
         id="inputLength"
         type="number"
         min="0"
-        @input="$store.commit(`updateInputLength`, $event.target.value)"
-        :value="inputLength"
+        @input="$emit('update:inputLength', $event.target.value)"
+        oninput="validity.valid||(value='')"
+        v-model.number="inputLength"
       />
     </fieldset>
     <fieldset>
@@ -17,8 +18,9 @@
         id="inputQuantity"
         type="number"
         min="1"
-        @input="$store.commit(`updateInputQuantity`, $event.target.value)"
-        :value="inputQuantity"
+        @input="$emit('update:inputQuantity', $event.target.value)"
+        oninput="validity.valid||(value='')"
+        v-model.number="inputQuantity"
       />
     </fieldset>
 
@@ -66,14 +68,14 @@
 import { mapState } from "vuex";
 
 export default {
+  data() {
+    return {
+      inputLength : 0,
+      inputQuantity : 1,
+    };
+  },
   computed: {
-    ...mapState([
-      "inputLength",
-      "inputQuantity",
-      "maxLength",
-      "gappage",
-      "piecesRequired",
-    ]),
+    ...mapState(["maxLength", "gappage", "piecesRequired"]),
   },
   watch: {
     piecesRequired(newVal, oldVal) {
@@ -90,8 +92,8 @@ export default {
         return;
       }
       this.piecesRequired.push([this.inputQuantity, this.inputLength]);
-      this.$store.commit(`updateInputLength`, 0);
-      this.$store.commit(`updateInputQuantity`, 0);
+      this.inputLength = 0;
+      this.inputQuantity = 1;
     },
 
     removeInputFromList(itemToDelete) {
