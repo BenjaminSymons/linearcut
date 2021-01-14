@@ -3,7 +3,7 @@
     <app-header />
     <section class="container">
       <app-tool />
-      <app-form/>
+      <app-form />
     </section>
     <p>Length {{ inputLength }}</p>
     <p>Quantity {{ inputQuantity }}</p>
@@ -24,7 +24,13 @@ export default {
     AppForm,
   },
   computed: {
-    ...mapState(["maxLength", "piecesRequired", "gappage", "inputLength", "inputQuantity"]),
+    ...mapState([
+      "maxLength",
+      "piecesRequired",
+      "gappage",
+      "inputLength",
+      "inputQuantity",
+    ]),
   },
   methods: {},
   watch: {},

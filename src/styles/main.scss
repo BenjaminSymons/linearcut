@@ -1,29 +1,31 @@
 @use "sass:color";
 
 @function tint($base, $amount) {
-    $tinted: color.adjust($base, $hue: -$amount, $saturation: -($amount * 0.1) * 1%, $lightness: $amount * 1%);
-    @return $tinted;
+  $tinted: color.adjust($base, $hue: -$amount, $saturation: - ($amount * 0.1) * 1%, $lightness: $amount * 1%);
+  @return $tinted;
 }
 
 @function shade($base, $amount) {
-    $tinted: color.adjust($base, $hue: $amount, $saturation: -($amount * 0.6) * 1%, $lightness: -$amount * 1%);
-    @return $tinted;
+  $tinted: color.adjust($base, $hue: $amount, $saturation: - ($amount * 0.6) * 1%, $lightness: -$amount * 1%);
+  @return $tinted;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-input, label, button {
-    font-family: "Mukta Mahee", Helvetica, Arial, sans-serif;
+input,
+label,
+button {
+  font-family: "Mukta Mahee", Helvetica, Arial, sans-serif;
 }
 
 $deepSkyBlue: #053847;
-$t1: #ECEFF1;
+$t1: #eceff1;
 $t2: shade($t1, 10);
 // $t2: color.adjust($t1, $hue: 10%, $saturation: 00%);
 // $t1: #FF4422;
 // @debug "T2 : hsl(#{hue($t2)}, #{saturation($t2)}, #{lightness($t2)});";
-$b1:#ffffff ;
+$b1: #ffffff;
 $b2: color.scale($b1, $lightness: -2%);
 $subtitleText: #2a0581;

@@ -7,9 +7,8 @@
         id="inputLength"
         type="number"
         min="0"
-        @input="$emit('update:inputLength', $event.target.value)"
-        oninput="validity.valid||(value='')"
-        v-model.number="inputLength"
+        @input="$store.commit(`updateInputLength`, $event.target.value)"
+        :value="inputLength"
       />
     </fieldset>
     <fieldset>
@@ -18,9 +17,8 @@
         id="inputQuantity"
         type="number"
         min="1"
-        @input="$emit('update:inputQuantity', $event.target.value)"
-        oninput="validity.valid||(value='')"
-        v-model.number="inputQuantity"
+        @input="$store.commit(`updateInputQuantity`, $event.target.value)"
+        :value="inputQuantity"
       />
     </fieldset>
 
@@ -46,9 +44,8 @@
         id="maxLength"
         type="number"
         min="0"
-        @input="$emit('update:maxLength', $event.target.value)"
-        oninput="validity.valid||(value='')"
-        v-model.number="maxLength"
+        @input="$store.commit(`updateMaxLength`, $event.target.value)"
+        :value="maxLength"
       />
     </fieldset>
 
@@ -58,9 +55,8 @@
         id="gappage"
         type="number"
         min="0"
-        @input="$emit('update:gappage', $event.target.value)"
-        oninput="validity.valid||(value='')"
-        v-model.number="gappage"
+        @input="$store.commit(`updateGappage`, $event.target.value)"
+        :value="gappage"
       />
     </fieldset>
   </aside>
@@ -79,14 +75,23 @@ export default {
       "piecesRequired",
     ]),
   },
+  watch: {
+    piecesRequired(newVal, oldVal) {
+      const payload = {
+        newVal,
+        oldVal,
+      };
+      this.$store.commit("adjustArr", newVal);
+    },
+  },
   methods: {
     addInputToList() {
       if (!this.inputLength) {
         return;
       }
       this.piecesRequired.push([this.inputQuantity, this.inputLength]);
-      this.inputLength = 0;
-      this.inputQuantity = 0;
+      this.$store.commit(`updateInputLength`, 0);
+      this.$store.commit(`updateInputQuantity`, 0);
     },
 
     removeInputFromList(itemToDelete) {

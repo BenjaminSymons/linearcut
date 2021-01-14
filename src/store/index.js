@@ -12,7 +12,23 @@ export default new Vuex.Store({
     inputLength: 0,
     inputQuantity: 1,
   },
-  mutations: {},
+  mutations: {
+    updateInputLength(state, payload) {
+      state.inputLength = payload;
+    },
+    updateInputQuantity(state, payload) {
+      state.inputQuantity = payload;
+    },
+    updateMaxLength(state, payload) {
+      state.maxLength = payload;
+    },
+    updateGappage(state, payload) {
+      state.gappage = payload;
+    },
+    adjustArr(state, pieces) {
+      state.piecesRequired = pieces;
+    }
+  },
   actions: {},
   modules: {},
 });
