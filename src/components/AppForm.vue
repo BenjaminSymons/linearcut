@@ -124,5 +124,6 @@ aside {
   font: inherit;
   color: inherit;
   border: 1px solid $subtitleText;
+  background-color: tint($b2, 4);
 }
 </style>

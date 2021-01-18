@@ -26,7 +26,7 @@ export default {};
 
 <style lang="scss" scoped>
 .logo {
-  fill: $deepSkyBlue;
+  fill: $accent;
 }
 
 nav {

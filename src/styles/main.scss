@@ -24,13 +24,10 @@ button {
   font-family: "Mukta Mahee", Helvetica, Arial, sans-serif;
 }
 
-$deepSkyBlue: #053847;
-$pieces: tint($deepSkyBlue, 80);
-$t1: hsl(0, 0%, 100%);
-$t2: shade($t1, 10);
-// $t2: color.adjust($t1, $hue: 10%, $saturation: 00%);
-// $t1: #FF4422;
-// @debug "T2 : hsl(#{hue($t2)}, #{saturation($t2)}, #{lightness($t2)});";
+$accent: #9e03e6;
+$pieces: color.adjust($accent, $saturation: -15%, $lightness: 20%, $alpha: -0.6);
 $b1: #ffffff;
 $b2: color.scale($b1, $lightness: -0.5%);
+$t1: shade($b1, 40);
+$t2: shade($t1, 10);
 $subtitleText: #2a0581;

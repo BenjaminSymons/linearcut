@@ -30,8 +30,10 @@ export default {
 
 <style lang="scss">
 body {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 90vh;
+  padding: 0;
+  margin: 0;
   background: $b1; /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover, $b1 0%, $b2 100%); /* FF3.6-15 */
   background: -webkit-radial-gradient(center, ellipse cover, $b1 0%, $b2 100%); /* Chrome10-25,Safari5.1-6 */
@@ -49,7 +51,7 @@ body {
 }
 
 #app {
-  margin: 5vmin;
+  margin: 5vmin 5vmin 0;
 }
 
 .container {

@@ -128,7 +128,7 @@ main {
 }
 
 .tool {
-  border: 1px solid $deepSkyBlue;
+  border: 1px solid $accent;
   width: 100%;
   height: 100%;
   background: $t1; /* Old browsers */
@@ -138,6 +138,8 @@ main {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#16242c', endColorstr='#12101d',GradientType=0 ); /* IE6-9 fallback on horizontal gradient */
   box-shadow: 0 2px 20px 0 #aaa;
   display: flex;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  overflow: hidden;
 }
 
 .material {
@@ -148,30 +150,30 @@ main {
     margin: 0;
     padding: 0%;
     align-self: center;
+    font-weight: bold;
   }
 }
 
 .material-container {
   display: flex;
   flex-grow: 1;
-  border: solid 1px black;
+  border: solid 2px $accent;
   margin: 5px;
   flex-direction: column;
 }
 
 .material-container:nth-child(1) {
-  border-top: 1px solid rgba($color: #000000, $alpha: 0.5);
+  border-top: 2px solid $accent;
 }
 
 .piece {
   display: flex;
   background-color: $pieces;
-  // border-top: 1px solid rgba($color: #000000, $alpha: 0.5);
-  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.5);
-  width: 30px;
+  border-bottom: 2px solid $accent;
+  width: 50px;
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  color: black;
 }
 </style>
