@@ -2,11 +2,15 @@
 
 @function tint($base, $amount) {
   $tinted: color.adjust($base, $hue: -$amount, $saturation: - ($amount * 0.1) * 1%, $lightness: $amount * 1%);
+  $tinted: color.adjust($base, $saturation: - ($amount * 0.1) * 1%);
+  $tinted: color.adjust($base, $lightness: $amount * 1%);
   @return $tinted;
 }
 
 @function shade($base, $amount) {
-  $tinted: color.adjust($base, $hue: $amount, $saturation: - ($amount * 0.6) * 1%, $lightness: -$amount * 1%);
+  $tinted: color.adjust($base, $hue: $amount);
+  $tinted: color.adjust($base, $saturation: - ($amount * 0.6) * 1%);
+  $tinted: color.adjust($base, $lightness: -$amount * 1%);
   @return $tinted;
 }
 
@@ -21,11 +25,12 @@ button {
 }
 
 $deepSkyBlue: #053847;
-$t1: #eceff1;
+$pieces: tint($deepSkyBlue, 80);
+$t1: hsl(0, 0%, 100%);
 $t2: shade($t1, 10);
 // $t2: color.adjust($t1, $hue: 10%, $saturation: 00%);
 // $t1: #FF4422;
 // @debug "T2 : hsl(#{hue($t2)}, #{saturation($t2)}, #{lightness($t2)});";
 $b1: #ffffff;
-$b2: color.scale($b1, $lightness: -2%);
+$b2: color.scale($b1, $lightness: -0.5%);
 $subtitleText: #2a0581;

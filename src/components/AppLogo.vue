@@ -15,8 +15,8 @@
         />
       </g>
     </svg>
-    LCP
-    <p class="indie-flower"></p>
+    Linear Cut Planner
+    <p class="indie-flower">by Benjamin Symons</p>
   </nav>
 </template>
 

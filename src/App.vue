@@ -5,7 +5,6 @@
       <app-tool :items="piecesRequired" />
       <app-form />
     </section>
-    <p>{{ piecesRequired }}</p>
   </div>
 </template>
 
@@ -34,18 +33,8 @@ body {
   width: 100vw;
   min-height: 100vh;
   background: $b1; /* Old browsers */
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    $b1 0%,
-    $b2 100%
-  ); /* FF3.6-15 */
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    $b1 0%,
-    $b2 100%
-  ); /* Chrome10-25,Safari5.1-6 */
+  background: -moz-radial-gradient(center, ellipse cover, $b1 0%, $b2 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, $b1 0%, $b2 100%); /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(
     ellipse at center,
     $b1 0%,
